@@ -1,0 +1,10 @@
+.mic-ignition {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background-color: aquamarine;
+}
+
+.recording-activated {
+    background-color: rgb(247, 59, 59);
+}
