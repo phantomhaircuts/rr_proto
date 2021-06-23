@@ -4,11 +4,12 @@ tag.src = 'https://www.youtube.com/iframe_api';
 const firstScriptTag = document.getElementsByTagName('script')[0];
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 let player;
+let videoID = 'TaCYx9hAv_o'
 function onYouTubeIframeAPIReady() {
     player = new YT.Player('player', {
       height: '390',
       width: '640',
-      videoId: 'TaCYx9hAv_o',
+      videoId: videoID,
       playerVars: {
         'playsinline': 1
       },
@@ -68,16 +69,35 @@ function speechResults (e){
 }
 
 function evalResults (transcript, event) {
-    console.log(transcript.toLowerCase());
+    
+  console.log(transcript.toLowerCase());
+    
     if (transcript.toLowerCase().includes('serenity beach')) {
-        playVideo()
+        videoID = 'TaCYx9hAv_o';
+        let iframe = document.querySelector('#player');
+        iframe.classList.toggle("hide");
+        playVideo();
+
     }
+   
     if (transcript.toLowerCase().includes('emerald cove')) {
-        alert('Emerald Cove!');
+        videoID = 'NXfWway52TY';
+        let iframe = document.querySelector('#player');
+        iframe.classList.toggle("hide");
+        playVideo();
     }
-    if (transcript.toLowerCase().includes('campfire lake')) {
-        alert('campfire lake!');
+    
+    if (transcript.toLowerCase().includes('sunrise bay')) {
+      videoID = '_J2b1wJAuH8';
+      let iframe = document.querySelector('#player');
+      iframe.classList.toggle("hide");
+      playVideo();
     }
+    
+    if (transcript.toLowerCase().includes('stop')) {
+      stopVideo()
+      iframe.classList.toggle('hide');
+  }
 }
 
 if (speechRecognition) {

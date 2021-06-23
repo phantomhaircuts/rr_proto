@@ -8,3 +8,7 @@
 .recording-activated {
     background-color: rgb(247, 59, 59);
 }
+
+.hide {
+    display: none;
+}
